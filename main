@@ -1,0 +1,52 @@
+#This one is rock, paper, scissor game prototype
+import random
+import time
+
+r = 'rock'
+p = 'paper'
+s = 'scissor'
+type = [r,p,s]
+
+print("Hey there!\nYou are now on a simple rock, paper, scissor game\n\nAnyway you know the rule right?")
+time.sleep(1)
+print("(r) for rock\n(p) for paper\n(s) for scissor")
+time.sleep(1)
+
+def udah():
+    end = input('\nPlay again?(y/n) ')
+    end.lower()
+
+    while end != 'y' and end != 'n':
+        end = input('\nPlay again?(y/n) ')
+        end.lower()
+
+    if end == 'y':
+        play()
+    elif end == 'n':
+        print("\nThanks for playing!\nHave a good day :D!")
+
+def play():
+    bro = input('Choose your fighter: ')
+
+    while bro != 'r' and bro != 'p' and bro != 's':
+        print('Yang bener bang!\nChoose wisely!')
+        bro = input('Choose your fighter: ')
+
+    i = random.randint(1,2)
+    result = type[i]
+
+    print("It's "+result+' !')
+    if (bro == 'r' and result == s) or (bro == 'p' and result == r) or (bro == 's' and result == p):
+        print("Hehey you win!")
+    elif (bro == 'r' and result == p) or (bro == 'p' and result == s) or (bro == 's' and result == r):
+        print("Poor you :(\nYou lose!")
+    elif (bro == 'r' and result == r) or (bro == 'p' and result == p) or (bro == 's' and result == s):
+        print("Hey! It's Draw!")
+    udah()
+
+play()
+
+time.sleep(1)
+
+
+
